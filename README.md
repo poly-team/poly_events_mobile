@@ -17,20 +17,22 @@ Mobile application for Poly Events project.
 You should always use SSH, **not HTTPS**, to clone Poly Team repositories.
 If you are new to GitHub or have not set up an SSH key on GitHub before, please refer to [Adding a new SSH key to your GitHub account](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
 
-### Fork a Copy
+### Do Not Submit Pull Request from Fork (For Now)
 
-**Do not clone repositories directly from the Poly Team organization.**
-Please begin contributing to this project by forking the repository.
+Usually, we do not clone repositories directly from the Poly Team organization.
+You would begin contributing to our projects by forking the repository.
 
-Later, you may clone the forked project and add the poly team version as `upstream`.
-For example,
+**However, due to the recent security concerns and incompatible workflows, please do not submit pull requests from a forked repository for now.**
 
-```bash
-git remote add upstream git@github.com:poly-team/<REPO_NAME>.git
-```
+Please clone this repository directly.
 
-where `<REPO_NAME>` is the name of repository.
-You can find the full link in the SSH tab after pressing the green clone button in the main repository.
+[comment]: <> (Later, you may clone the forked project and add the poly team version as `upstream`.)
+[comment]: <> (For example,)
+[comment]: <> (```bash)
+[comment]: <> (git remote add upstream git@github.com:poly-team/<REPO_NAME>.git)
+[comment]: <> (```)
+[comment]: <> (where `<REPO_NAME>` is the name of repository.)
+[comment]: <> (You can find the full link in the SSH tab after pressing the green clone button in the main repository.)
 
 ### Use Branch Naming Convention
 
