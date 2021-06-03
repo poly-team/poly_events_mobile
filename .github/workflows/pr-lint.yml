@@ -1,0 +1,44 @@
+# Workflow to lint pull request title
+
+name: CI - Pull Request Lint
+
+on:
+  pull_request:
+    types: ['opened', 'edited', 'reopened', 'synchronize']
+
+jobs:
+  lint:
+    name: Check Jira Ticket Format
+    runs-on: ubuntu-18.04
+
+    steps:
+      - name: Check for Ticket
+        uses: seferov/pr-lint-action@master
+        with:
+          title-regex: '^\[[a-zA-Z]+/PE1-(?<ticketNumber>\d+)\]'
+          github-token: ${{ secrets.ROBOT_TOKEN }}
+          auto-close-message: >-
+            Hi @${{ github.actor }}, <br/>
+
+            Thank you for submitting a pull request. <br/>
+
+            We are sorry to inform you that we either could not extract a Jira ticket from the title of
+            this pull request or the title of this pull request is not following convention.
+            In particular, we should title our PRs in this way: <br/>
+
+            ```
+            [<branch_category>/<ticket_id>] <short_description>
+            ```
+
+            <br/>
+
+            If you are following the convention above, please double check whether your ticket number
+            is valid.
+            **We are closing this pull request. Please reopen it when the fix is completed!**
+
+            <br/>
+
+            Thank you, <br/>
+            Poly Team Solutions
+
+            <br/>

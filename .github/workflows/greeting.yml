@@ -1,0 +1,46 @@
+name: MS - Greetings
+
+on:
+  [pull_request]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.ROBOT_TOKEN }}
+          # issue-message: ""
+          pr-message: |+
+            Hi @${{ github.actor }}, <br/>
+
+            Welcome to **Poly Team Solutions**! As you are reading this message, **you just submitted your first pull request**! :beers:
+
+            We're sure that you will become more familiar with our workflows in the future. :smile: However, in the meanwhile, please allow me to remind you several things:
+
+            **Look at the ticket corresponding to this pull request**
+
+            You should see this pull request under **Development** section. Please don't forget to update ticket status if any of your pull requests completes the ticket!
+
+            **Review the pull-request checklist**
+
+            Please take some time to read our contribution guidelines. In particular, here's a checklist from the guideline which applies to our situation (i.e., right after opening a pull request):
+
+            > Once you create a pull request on GitHub, you should perform the following:
+            >
+            > - Assign one or more reviewers that you think might be relevant to this pull request;
+            > - Assign yourself and/or other members as assignee for the pull request;
+            > - Add relevant labels to your pull request (e.g., "enhancement");
+            > - Wait and verify that the status checks pass, if applicable;
+            > - Look into the "Files" tab, making sure that no unnecessary file changes were checked out to Git.
+
+            **Lastly, please always remember that YOU matter. In our culture, all members are owners of Poly Team. Please don't hesitate to propose your ideas so that we can vote for it!** :star2:
+
+            Thank you @${{ github.actor }}! We're thrilled to have you in the Poly Team.
+
+            Poly Team Solutions
+
+      - uses: Code-Hex/first-label-interaction@v1.0.1
+        with:
+          github-token: ${{ secrets.ROBOT_TOKEN }}
+          pr-labels: '["good first issue", "help wanted"]'

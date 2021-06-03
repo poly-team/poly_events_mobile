@@ -1,0 +1,36 @@
+# Workflow to build Flutter app
+name: CI - APK Build
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+  pull_request:
+    branches:
+      - master
+      - develop
+
+jobs:
+  flutter_analyze:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v1
+
+      - name: Install Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: "12.x"
+
+      - name: Setup Flutter Environment
+        uses: subosito/flutter-action@v1
+        with:
+          channel: "beta"
+
+      - name: Get Dependencies
+        run: flutter pub get
+
+      - name: Try Building APK
+        run: flutter build apk
+

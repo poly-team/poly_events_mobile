@@ -1,0 +1,51 @@
+# Workflow to append Jira ticket to the end of pull request description
+name: CI - Jira Comment
+
+on:
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  update_description:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Login
+        uses: atlassian/gajira-login@master
+        env:
+          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+          JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+
+      - name: Find Branch Name
+        id: find-branch
+        uses: tj-actions/branch-names@v4.3
+
+      - name: Extract Ticket
+        uses: AsasInnab/regex-action@v1
+        with:
+          regex_pattern: 'PE\d-\d+'
+          regex_flags: 'gim'
+          search_string: ${{ steps.find-branch.outputs.head_ref_branch }}
+        id: get-ticket
+
+      - name: Add Ticket Comment
+        uses: unsplash/comment-on-pr@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.ROBOT_TOKEN }}
+        with:
+          msg: |+
+            **Scope of work:**
+
+            ${{ secrets.JIRA_BASE_URL }}/browse/${{ steps.get-ticket.outputs.first_match }}.
+
+          check_for_duplicate_msg: true
+
+      - name: Transition Issue
+        uses: atlassian/gajira-transition@master
+        with:
+          issue: ${{ steps.get-ticket.outputs.first_match }}
+          transition: "In progress"

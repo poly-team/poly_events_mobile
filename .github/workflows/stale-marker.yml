@@ -1,0 +1,66 @@
+name: MS - Stale Marker
+on:
+  schedule:
+    - cron: '30 1 * * *'
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v3
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          stale-issue-message: >-
+            Hi contributors,<br/>
+
+            Since no activities were detected in this issue for 14 days, it is now marked "inactive"
+            per Poly Team policy. **Inactive issues will be closed automatically after 7 days.** <br/>
+
+            If you still concern about this issue, please remove the inactive label or add a new comment,
+            so that this issue ticket does not become closed.
+            Otherwise, no action is needed. <br/>
+
+            Thank you for being a valuable part of Poly Team Solutions!<br/>
+
+            Best,<br/>
+            The Happy Poly Team Bot
+
+          stale-pr-message: >-
+            Hi contributors,<br/>
+
+            Since no activities were detected in this pull request for 14 days, it is now marked "inactive"
+            per Poly Team policy. **Inactive pull requests will be closed automatically after 7 days.** <br/>
+
+            If you still concern about this pull request, please remove the inactive label or add a new comment,
+            so that this pull request does not become closed.
+            Otherwise, no action is needed. <br/>
+
+            Thank you for being a valuable part of Poly Team Solutions!<br/>
+
+            Best,<br/>
+            The Happy Poly Team Bot
+
+          close-issue-message: >-
+            Hi contributors,<br/>
+
+            Thank you for your inputs. This issue has been inactive for 7 days, so we are closing it as
+            per Poly Team policy. Please reopen this issue any time in the future when there's a need.<br/>
+
+            Thanks,<br/>
+            The Happy Poly Team Bot
+
+          close-pr-message: >-
+            Hi contributors,<br/>
+
+            Thank you for your inputs. This pull request has been inactive for 7 days, so we are closing it as
+            per Poly Team policy. Please reopen this pull request any time in the future when there's a need.<br/>
+
+            Thanks,<br/>
+            The Happy Poly Team Bot
+
+          days-before-issue-stale: 14
+          days-before-issue-close: 7
+          days-before-pr-stale: 14
+          days-before-pr-close: 7
+          stale-pr-label: 'inactive'
+          stale-issue-label: 'inactive'
