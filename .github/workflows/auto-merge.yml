@@ -2,6 +2,7 @@
 # WARNING: Do not use this workflow if reviews are not required!
 
 name: MS - Automerge
+
 on:
   pull_request:
     types:
@@ -20,6 +21,7 @@ on:
     types:
       - completed
   status: {}
+
 jobs:
   automerge:
     runs-on: ubuntu-latest
