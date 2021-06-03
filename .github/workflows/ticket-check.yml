@@ -1,4 +1,4 @@
-# Workflow to append Jira ticket to the end of pull request description
+# Workflow to append Jira ticket as a comment in pull request
 name: CI - Jira Comment
 
 on:
@@ -7,7 +7,7 @@ on:
       - opened
 
 jobs:
-  update_description:
+  jira-add-comment:
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout

@@ -9,7 +9,7 @@ on:
       - develop
 
 jobs:
-  flutter_analyze:
+  flutter-analyze:
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout Code
