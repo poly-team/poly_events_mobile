@@ -6,6 +6,16 @@ Mobile application for Poly Events project.
 
 ## Contributors
 
+Jimmy Lan @lanyanxiang
+
+Sheldon Su @Sheldonsu28
+
+Chenhao Gong @shoko-inori
+
+Evence Wang @evencewang
+
+Jaedon Cheung @JaedonC
+
 **Note:** Please add your name here once your first pull request is merged!
 
 ## Contribution Guide
