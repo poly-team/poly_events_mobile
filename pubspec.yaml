@@ -33,6 +33,7 @@ flutter_icons:
   android: "flutter_icon"
   ios: true
   image_path: "assets/icon/PElogo1.png"
+  remove_alpha_ios: true
 
 dev_dependencies:
   flutter_test:
