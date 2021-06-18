@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 class CalenderPic extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("../../appResources/WelcomePage/PElogin2.png"),
-              fit: BoxFit.cover)),
+    return Image(
+      image: AssetImage('appResources/WelcomePage/PEwelcomeImage.png'),
+      fit: BoxFit.contain,
+      height: MediaQuery.of(context).size.height * 0.4,
+      width: MediaQuery.of(context).size.width * 0.8,
     );
   }
 }

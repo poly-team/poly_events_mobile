@@ -1,72 +1,35 @@
 import 'package:flutter/material.dart';
+import 'circleOverlays.dart';
+import 'calenderPic.dart';
+import 'signInButtons.dart';
+import 'pageTitle.dart';
 
 class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('hi'),
-      ),
-    );
-  }
-}
-
-class BottomSquareWithButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("../../appResources/WelcomePage/PErectangle1.png"),
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      body: Stack(
+        textDirection: TextDirection.ltr,
         children: [
-          WelcomeSignUpButtons(),
-          WelcomeLoginButtons(),
+          Positioned(
+            child: CircleOverlays(),
+          ),
+          Positioned(
+            child: BottomSquareWithButton(),
+            bottom: 0,
+          ),
+          Positioned(
+            child: CalenderPic(),
+            bottom: MediaQuery.of(context).size.height * 0.35,
+            left: MediaQuery.of(context).size.width * 0.1,
+          ),
+          Positioned(
+            child: PageTitle(),
+            left: MediaQuery.of(context).size.width * 0.07,
+            top: MediaQuery.of(context).size.height * 0.07,
+          ),
         ],
       ),
-    );
-  }
-}
-
-/// Sign up button for the welcome page, use the raised button.
-class WelcomeSignUpButtons extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      child: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("../../appResources/WelcomePage/PEsignup.png"),
-              fit: BoxFit.cover),
-        ),
-      ),
-      onTap: () {
-        //Todo: push to sign up page
-      },
-    );
-  }
-}
-
-/// Sign up button for the welcome page, use the raised button.
-class WelcomeLoginButtons extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      child: Container(
-        color: Colors.transparent,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("../../appResources/WelcomePage/PElogin2.png"),
-              fit: BoxFit.cover),
-        ),
-      ),
-      onTap: () {
-        //Todo: push to sign up page
-      },
     );
   }
 }

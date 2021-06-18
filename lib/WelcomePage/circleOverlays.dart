@@ -3,17 +3,27 @@ import 'package:flutter/material.dart';
 class CircleOverlays extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Positioned(
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      child: Stack(
+        textDirection: TextDirection.ltr,
+        children: [
+          Positioned(
             child: CircleContainer(
-          assetLocation: '../../appResources/WelcomePage/PEcircle2.png',
-        )),
-        Positioned(
+                assetLocation: 'appResources/WelcomePage/PEcircle2.png',
+                width: 0.6,
+                height: 0.33),
+            left: 0,
+          ),
+          Positioned(
             child: CircleContainer(
-          assetLocation: '../../appResources/WelcomePage/PEcircle1.png',
-        ))
-      ],
+                assetLocation: 'appResources/WelcomePage/PEcircle1.png',
+                width: 0.6,
+                height: 0.216),
+            right: 0,
+          )
+        ],
+      ),
     );
   }
 }
@@ -21,15 +31,22 @@ class CircleOverlays extends StatelessWidget {
 // this class is use to hold the circles
 class CircleContainer extends StatelessWidget {
   final String assetLocation;
+  final double width;
+  final double height;
 
-  CircleContainer({Key key, @required this.assetLocation});
+  CircleContainer(
+      {Key key,
+      @required this.assetLocation,
+      @required this.width,
+      @required this.height});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(assetLocation), fit: BoxFit.cover)),
+    return Image(
+      width: MediaQuery.of(context).size.width * width,
+      height: MediaQuery.of(context).size.height * height,
+      image: AssetImage(assetLocation),
+      fit: BoxFit.contain,
     );
   }
 }
