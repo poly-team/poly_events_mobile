@@ -2,7 +2,7 @@
     package="com.example.poly_events_mobile">
    <application
         android:label="poly_events_mobile"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/flutter_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
