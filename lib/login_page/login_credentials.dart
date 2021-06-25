@@ -43,6 +43,10 @@ class LoginCredentials extends StatelessWidget {
               ),
             ),
           ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: LoginButton(),
+          ),
           Text('By Poly Team', textDirection: TextDirection.ltr)
         ],
       ),
@@ -51,18 +55,15 @@ class LoginCredentials extends StatelessWidget {
 }
 
 /// Sign up button for the welcome page, use the raised button.
-class WelcomeButtons extends StatelessWidget {
-  final String assetLocation;
-
-  WelcomeButtons({Key key, @required this.assetLocation});
-
+/// TODO: Replace this (PE1-24)
+class LoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Image(
           height: MediaQuery.of(context).size.height * 0.1,
           width: MediaQuery.of(context).size.width * 0.8,
-          image: AssetImage(assetLocation),
+          image: AssetImage('../../assets/images/PElogin2.png'),
           fit: BoxFit.fitWidth),
       onTap: () {
         //Todo: link it to different page up page
