@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import './login_form.dart';
 
+// Class for the credential pad on the login page, including the form
+// containing two text inputs and the login button
 class LoginCredentials extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

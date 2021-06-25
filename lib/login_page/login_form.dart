@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Class for the login form consisting of two text inputs
 class LoginForm extends StatefulWidget {
   @override
   LoginFormState createState() {
