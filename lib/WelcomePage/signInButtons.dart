@@ -24,9 +24,8 @@ class BottomSquareWithButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         textDirection: TextDirection.ltr,
         children: [
-          WelcomeButtons(
-              assetLocation: 'appResources/WelcomePage/PEsignup.png'),
-          WelcomeButtons(assetLocation: 'appResources/WelcomePage/PElogin.png'),
+          WelcomeButtons(assetLocation: 'assets/images/PEsignup.png'),
+          WelcomeButtons(assetLocation: 'assets/images/PElogin.png'),
           Text('By Poly Team', textDirection: TextDirection.ltr)
         ],
       ),

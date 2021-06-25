@@ -11,7 +11,7 @@ class PageTitle extends StatelessWidget {
         textDirection: TextDirection.ltr,
         children: [
           Image(
-            image: AssetImage('appResources/WelcomePage/PElogo2.png'),
+            image: AssetImage('assets/images/PElogo2.png'),
             fit: BoxFit.contain,
             height: MediaQuery.of(context).size.height * 0.08,
           ),
