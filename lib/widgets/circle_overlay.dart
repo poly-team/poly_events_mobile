@@ -4,20 +4,20 @@ class CircleOverlays extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width,
+      width: MediaQuery.of(context).size.height,
       child: Stack(
         textDirection: TextDirection.ltr,
         children: [
           Positioned(
             child: CircleContainer(
-                assetLocation: 'appResources/WelcomePage/PEcircle2.png',
+                assetLocation: 'assets/images/PEcircle2.png',
                 width: 0.6,
                 height: 0.33),
             left: 0,
           ),
           Positioned(
             child: CircleContainer(
-                assetLocation: 'appResources/WelcomePage/PEcircle1.png',
+                assetLocation: 'assets/images/PEcircle1.png',
                 width: 0.6,
                 height: 0.216),
             right: 0,
