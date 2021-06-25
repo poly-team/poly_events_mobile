@@ -12,14 +12,7 @@ class LoginFormState extends State<LoginForm> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          //gradient color for the rectangle
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: <Color>[
-                Color.fromARGB(255, 217, 188, 240),
-                Color.fromARGB(255, 237, 210, 240)
-              ]),
+          color: Color.fromARGB(255, 248, 236, 252),
           borderRadius: BorderRadius.only(
             topLeft: const Radius.circular(25.0),
             topRight: const Radius.circular(25.0),
