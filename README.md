@@ -16,6 +16,8 @@ Evence Wang @evencewang
 
 Jaedon Cheung @JaedonC
 
+Sixuan Wu @wsxwsx543
+
 **Note:** Please add your name here once your first pull request is merged!
 
 ## Contribution Guide
