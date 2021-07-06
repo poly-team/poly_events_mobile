@@ -39,6 +39,7 @@ class LoginFormState extends State<LoginForm> {
                 border: UnderlineInputBorder(),
                 labelText: 'Password',
               ),
+              obscureText: true,
             ),
           ),
         ],
