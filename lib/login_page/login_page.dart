@@ -13,7 +13,6 @@ class LoginPage extends StatelessWidget {
         children: [
           Positioned(
             child: CircleOverlays(),
-            top: 0,
           ),
           Positioned(
             child: LoginCredentials(),
