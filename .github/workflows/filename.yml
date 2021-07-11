@@ -15,14 +15,14 @@ jobs:
         uses: batista/lint-filenames@v1.0.0
         with:
           path: "./assets"
-          pattern: "^([a-z][a-z0-9]*)_?\\.[a-zA-Z0-9]+$"
+          pattern: "^(([a-z][a-z0-9]*)_?)+\\.[a-zA-Z0-9]+$"
       - name: Lint Design Folder File Names
         uses: batista/lint-filenames@v1.0.0
         with:
           path: "./design"
-          pattern: "^([a-z][a-z0-9]*)_?\\.[a-zA-Z0-9]+$"
+          pattern: "^(([a-z][a-z0-9]*)_?)+\\.[a-zA-Z0-9]+$"
       - name: Lint Lib Folder File Names
         uses: batista/lint-filenames@v1.0.0
         with:
           path: "./lib"
-          pattern: "^([a-z][a-z0-9]*)_?\\.[a-zA-Z0-9]+$"
+          pattern: "^(([a-z][a-z0-9]*)_?)+\\.[a-zA-Z0-9]+$"
