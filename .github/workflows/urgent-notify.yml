@@ -29,4 +29,4 @@ jobs:
             Check differences (raw): ${{ github.event.pull_request.diff_url }}.
             Pull request state: ${{ github.event.pull_request.state }}.
 
-            _If possible, please review this pull request as soon as possible. Thank you for your attention and have a great day!_
+            _If possible, please review this pull request at your earliest convenience. Thank you for your attention and have a great day!_
