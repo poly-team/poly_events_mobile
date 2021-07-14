@@ -7,7 +7,7 @@ on:
 
 jobs:
   notify_slack:
-    if: ${{ github.event.label.name == 'bug' }}
+    if: ${{ github.event.label.name == 'urgent' }}
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout Code
