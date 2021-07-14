@@ -12,13 +12,6 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-      - name: Get PR Link
-        uses: 8BitJonny/gh-get-current-pr@1.1.0
-        id: PR
-        with:
-          github-token: ${{ secrets.ROBOT_TOKEN }}
-          # Only return if PR is still open
-          filterOutClosed: true
       - name: Notify Engineering Slack Channel
         uses: rtCamp/action-slack-notify@v2
         env:
@@ -27,10 +20,13 @@ jobs:
           SLACK_TITLE: "Urgent: ${{ github.event.pull_request.title }}"
           SLACK_ICON: "https://avatars.githubusercontent.com/u/83420744?v=4"
           SLACK_CHANNEL: "engineering"
+          SLACK_COLOR: "red"
           MSG_MINIMAL: ref,actions url
           SLACK_MESSAGE: |
             @${{ github.actor }} marked pull request ${{ github.event.pull_request.title }} as urgent.
-            See pull request: ${{ steps.PR.outputs.pr_url }}.
+            Pull request number: ${{ github.event.pull_request.number }}.
+            See pull request: ${{ github.event.pull_request.url }}.
+            Review pull request: ${{ github.event.pull_request.diff_url }}.
+            Pull request state: ${{ github.event.pull_request.state }}.
 
-            Pull request number: ${{ steps.PR.outputs.number }}.
-            Created at: ${{ steps.PR.outputs.pr_created_at }}.
+            _If possible, please review this pull request as soon as possible. Thank you for your attention and have a great day!_
