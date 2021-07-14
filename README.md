@@ -18,6 +18,8 @@ Jaedon Cheung @JaedonC
 
 Sixuan Wu @wsxwsx543
 
+Bruce Qian @bruceqianzz
+
 **Note:** Please add your name here once your first pull request is merged!
 
 ## Contribution Guide
