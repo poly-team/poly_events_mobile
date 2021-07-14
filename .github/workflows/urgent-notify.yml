@@ -20,7 +20,7 @@ jobs:
           SLACK_TITLE: "Urgent: ${{ github.event.pull_request.title }}"
           SLACK_ICON: "https://avatars.githubusercontent.com/u/83420744?v=4"
           SLACK_CHANNEL: "engineering"
-          SLACK_COLOR: "red"
+          SLACK_COLOR: "#ff0000"
           MSG_MINIMAL: ref,actions url
           SLACK_MESSAGE: |
             @${{ github.actor }} marked pull request ${{ github.event.pull_request.title }} as urgent.
