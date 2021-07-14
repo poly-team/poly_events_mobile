@@ -1,0 +1,28 @@
+# Notify the engineering team if this pull request is labeled urgent
+name: MS - Urgent Notify
+
+on:
+  pull_request:
+    types: [ "labeled" ]
+
+jobs:
+  notify_slack:
+    if: ${{ github.event.label.name == 'bug' }}
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Get PR Link
+        uses: kceb/pull-request-url-action@v1
+        id: pr-url
+      - name: Notify Engineering Slack Channel
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_USERNAME: "Happy Poly Team Robot"
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_TITLE: "Urgent: ${{ github.event.pull_request.title }}"
+          SLACK_CHANNEL: "engineering"
+          MSG_MINIMAL: ref,actions url
+          SLACK_MESSAGE: |
+            @${{ github.actor }} marked pull request ${{ github.event.pull_request }} as urgent.
+            See pull request: ${{ steps.pr-url.outputs.url }}
