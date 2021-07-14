@@ -13,16 +13,24 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
       - name: Get PR Link
-        uses: kceb/pull-request-url-action@v1
-        id: pr-url
+        uses: 8BitJonny/gh-get-current-pr@1.1.0
+        id: PR
+        with:
+          github-token: ${{ secrets.ROBOT_TOKEN }}
+          # Only return if PR is still open
+          filterOutClosed: true
       - name: Notify Engineering Slack Channel
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_USERNAME: "Happy Poly Team Robot"
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_TITLE: "Urgent: ${{ github.event.pull_request.title }}"
+          SLACK_ICON: "https://avatars.githubusercontent.com/u/83420744?v=4"
           SLACK_CHANNEL: "engineering"
           MSG_MINIMAL: ref,actions url
           SLACK_MESSAGE: |
-            @${{ github.actor }} marked pull request ${{ github.event.pull_request }} as urgent.
-            See pull request: ${{ steps.pr-url.outputs.url }}
+            @${{ github.actor }} marked pull request ${{ github.event.pull_request.title }} as urgent.
+            See pull request: ${{ steps.PR.outputs.pr_url }}.
+
+            Pull request number: ${{ steps.PR.outputs.number }}.
+            Created at: ${{ steps.PR.outputs.pr_created_at }}.
