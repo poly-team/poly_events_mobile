@@ -23,10 +23,10 @@ jobs:
           SLACK_COLOR: "#ff0000"
           MSG_MINIMAL: ref,actions url
           SLACK_MESSAGE: |
-            @${{ github.actor }} marked pull request ${{ github.event.pull_request.title }} as urgent.
+            @${{ github.actor }} marked pull request **${{ github.event.pull_request.title }}** as urgent.
             Pull request number: ${{ github.event.pull_request.number }}.
-            See pull request: ${{ github.event.pull_request.url }}.
-            Review pull request: ${{ github.event.pull_request.diff_url }}.
+            See pull request: ${{ github.event.pull_request.html_url }}.
+            Check differences (raw): ${{ github.event.pull_request.diff_url }}.
             Pull request state: ${{ github.event.pull_request.state }}.
 
             _If possible, please review this pull request as soon as possible. Thank you for your attention and have a great day!_
